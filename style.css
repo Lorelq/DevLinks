@@ -34,7 +34,10 @@
 
 /* abaixo, em apenas 1 linha foi feito o mesmo que na parte de cima*/
 
-background: var(--bg-url) no-repeat top center/cover
+background: var(--bg-url) no-repeat top center/cover;
+height: 100vh;
+
+
 }
 
 body * {
@@ -90,16 +93,17 @@ body * {
  left: 0;
  z-index: 1;
  transform: translateY(-50%);
+
+ animation: slide-out .4s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
-
-
+  animation: slide-in .4s forwards;
 }
 
-
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
+}
 
 
 #switch span {
@@ -179,7 +183,6 @@ ul li a:hover{
 #social-links a:hover {
   
   background: var(--highlight-color);
-
 }
 
 footer {
@@ -191,7 +194,30 @@ footer {
 /* media queries */
 @media (min-width: 700px) {
   :root {
-    --bg-url: url(./assets/Background)
+    --bg-url: url(./assets/bgescuro.jpg);
+  }
 
+  .light {
+    --bg-url: url(./assets/bgbranco.jpg);
   }
 }
+
+@keyframes slide-in {
+  from{
+    left:0;
+  }
+  to{
+    left:50%;
+  }
+}
+@keyframes slide-out {
+  from {
+    left:50%
+  }
+  to{
+    left:0
+  }
+
+
+}
+
